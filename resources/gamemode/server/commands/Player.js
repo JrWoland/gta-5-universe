@@ -16,12 +16,10 @@ class PlayerCmd {
   }
 
   getUfo(player, args) {
-    const { x, y, z } = player.pos;
     alt.emitClient(player, 'ufoCmd');
   }
 
   deleteUfo(player, args) {
-    const { x, y, z } = player.pos;
     alt.emitClient(player, 'ufoCmdDelete');
   }
 }
