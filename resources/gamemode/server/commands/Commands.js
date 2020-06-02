@@ -1,5 +1,6 @@
-import alt from 'alt-server'
+import alt from 'alt-server';
 import chat from 'chat';
-import Player from './Player'
+import Player from './Player';
 
-chat.registerCmd('pos', Player.displayPositionOnChat)
+chat.registerCmd('pos', Player.displayPositionOnChat);
+chat.registerCmd('veh', Player.getVehicle);

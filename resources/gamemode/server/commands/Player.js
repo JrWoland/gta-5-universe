@@ -1,9 +1,20 @@
-import chat from 'chat'
+import alt from 'alt-server';
+import chat from 'chat';
 
 class Player {
-    displayPositionOnChat(player) {
-        chat.send(player, `X: ${player.pos.x}, Y: ${player.pos.y}, Z: ${player.pos.z}`)
-    }
+  constructor() {
+    this.name = 'this test';
+  }
+  displayPositionOnChat(player) {
+    const { x, y, z } = player.pos;
+    chat.send(player, `X: ${x}, Y: ${y}, Z: ${z}`);
+  }
+
+  getVehicle(player, args) {
+    const { x, y, z } = player.pos;
+    return new alt.Vehicle(args[0], x + 5, y, z, 0, 0, 0);
+  }
 }
 
-export default new Player()
+const instance = new Player();
+export default instance;
