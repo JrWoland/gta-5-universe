@@ -1,6 +1,7 @@
-import alt from 'alt-server';
 import chat from 'chat';
-import Player from './Player';
+import PlayerCmd from './Player';
 
-chat.registerCmd('pos', Player.displayPositionOnChat);
-chat.registerCmd('veh', Player.getVehicle);
+chat.registerCmd('pos', PlayerCmd.displayPositionOnChat);
+chat.registerCmd('veh', PlayerCmd.getVehicle);
+chat.registerCmd('ufo', PlayerCmd.getUfo);
+chat.registerCmd('ufodelete', PlayerCmd.deleteUfo);
