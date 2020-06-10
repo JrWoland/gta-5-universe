@@ -5,11 +5,17 @@ import game from 'natives';
 alt.onServer('onFirstConnect', () => {
   alt.log('You just connected');
   alt.emitServer('spawnPlayer');
-  const area = new alt.RadiusBlip(791, -262, 62.6, 1000);
-  area.alpha = 200;
-  area.color = 1;
-  area.category = 2;
+});
 
+alt.onServer('emitListOfAreas', (areas = []) => {
+  areas.forEach(({ x, y, z, width, heigth, color, _name }) => {
+    const area = new alt.AreaBlip(x, y, z, width, heigth);
+    area.alpha = 150;
+    area.color = color;
+    area.heading = 0; //angle
+    area.shortRange = true; //set visibility of dot
+    area.name = _name;
+  });
 });
 
 alt.onServer('ufoCmd', () => {
